@@ -1,0 +1,17 @@
+/* classes */
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+/* overall */
+html {
+    height: 100%
+}
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
+/* id links */

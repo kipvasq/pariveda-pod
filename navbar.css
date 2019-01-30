@@ -32,7 +32,7 @@
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+    color: #C0C0C0;
     text-decoration: none;
 }
 
@@ -129,8 +129,8 @@ a svg{
 }
 
 /* On mouse-over */
-.sidenav a:hover, .dropdown-btn:hover {
-    color: #f1f1f1;
+.dropdown-btn:hover {
+    color: #C0C0C0;
 }
 
 /* Main content */
@@ -149,7 +149,7 @@ a svg{
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
     display: none;
-    background-color: #262626;
+    background-color: #4682B4;
     padding-left: 8px;
 }
 

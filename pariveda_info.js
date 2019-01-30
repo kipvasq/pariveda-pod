@@ -36,6 +36,13 @@ var chicagoClients = [ new Location("client6", "INSERT_ADDRESS_HERE", "client", 
                        new Location("client10", "INSERT_ADDRESS_HERE", "client", "Atlanta")
                       ];
 
+var dallasClients = [ new Location("Topgolf", "8750 N Central Expy #1200, Dallas, TX 75231", "client", "Dallas"),
+                      new Location("Toyota USA", "6565 Headquarters Dr, Plano, TX 75024", "client", "Dallas"),
+                      new Location("Southwest Airlines", "2702 Love Field Dr, Dallas, TX 75235", "client", "Dallas"),
+                      new Location("HealthMarkets", "9151 Boulevard 26, North Richland Hills, TX 76180", "client", "Dallas"),
+                      new Location("Oncor Energy", "1616 Woodall Rodgers Fwy, Dallas, TX 75202", "client", "Dallas")
+                      ];
+
 var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #375, Atlanta, GA 30309​", "office", "(404) 528-1120​", "atlanta@parivedasolutions.com", atlantaClients),
                new Location("Chicago", "​​​​​​​​​​​20 N. Wacker Dr.​ #2620, Chicago, IL 60606", "office", "(312) 902-5700", "chicago@parivedasolutions.com", chicagoClients),
                new Location("Dallas", "2811 McKin​ney Ave​ #220, LB 126, Dallas, TX  75204​​", "office", atlantaClients),
@@ -52,4 +59,4 @@ var fins = [new Fin("Juan Vasquez", "Dallas", "N/A"),
             new Fin("Jake Altabef", "New York", "N/A")];
 
 
-var content = offices.concat(atlantaClients.concat(chicagoClients));
+var content = offices.concat(atlantaClients.concat(chicagoClients.concat(dallasClients)));

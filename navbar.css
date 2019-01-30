@@ -34,12 +34,13 @@
 
 /* Position and style the close button (top right corner) */
 .sidenav .closebtn {
+    width: 40px;
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
-    margin-left: 50px;
-    margin-top: -4px;
+    margin-left: 0px;
+    margin-top: 0px;
     top
 }
 
@@ -84,46 +85,99 @@ body {
 }
 
 a svg{
-  transition:all .5s ease;
+    transition:all .5s ease;
 
-  &:hover{
-    #transform:rotate(180deg);
-  }
+    &:hover{
+        #transform:rotate(180deg);
+    }
 }
 
 #ico{
-  display: none;
+    display: none;
 }
 
 .menu{
-  background: #000;
-  display: none;
-  padding: 5px;
-  width: 320px;
-  @include border-radius(5px);
+    background: #000;
+    display: none;
+    padding: 5px;
+    width: 320px;
+    @include border-radius(5px);
 
-  #transition: all 0.5s ease;
+    #transition: all 0.5s ease;
 
-  a{
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 10px 2px;
-    margin: 3px 0;
+    a{
+        display: block;
+        color: #fff;
+        text-align: center;
+        padding: 10px 2px;
+        margin: 3px 0;
+        text-decoration: none;
+        background: #444;
+
+        &:nth-child(1){
+            margin-top: 0;
+            @include border-radius(3px 3px 0 0 );
+        }
+        &:nth-child(5){
+        margin-bottom: 0;
+        @include border-radius(0 0 3px 3px);
+        }
+
+        &:hover{
+            background: #555;
+        }
+    }
+}
+
+/* dropdown menu */
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
     text-decoration: none;
-    background: #444;
+    font-size: 20px;
+    color: white;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
 
-    &:nth-child(1){
-      margin-top: 0;
-      @include border-radius(3px 3px 0 0 );
-    }
-    &:nth-child(5){
-      margin-bottom: 0;
-      @include border-radius(0 0 3px 3px);
-    }
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+}
 
-    &:hover{
-      background: #555;
-    }
-  }
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: transparent;
+    color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 8px;
+    width: 20px;
+}
+
+.button-down {
+    width: 20px;
 }

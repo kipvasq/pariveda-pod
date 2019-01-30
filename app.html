@@ -50,28 +50,29 @@
     <div id="sideNavigation" class="sidenav position-absolute">
         <img src="img/Pariveda_logo_long_white.png" alt="Pariveda solutions logo" width="200px" class="ml-3">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <svg height="50" width="250" id="spacer">
+            <path d="M0,25 350,25" stroke="white" stroke-width="5"/>
+        </svg>
         <a href="https://pariveda.sharepoint.com/SitePages/Deepblue.aspx" target="_blank">DeepBlue</a>
         <a href="https://theocean.parivedasolutions.com/people" target="_blank">The Ocean</a>
         <a href="https://app.highground.com/#/login/pariveda-sso" target="_blank">HighGround</a>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <a href="#" onclick="setMapCenter('atlanta'); closeNav();">Atlanta</a>
-        <a href="#" onclick="setMapCenter('chicago'); closeNav();">Chicago</a>
-        <a href="#" onclick="setMapCenter('dallas'); closeNav();">Dallas</a>
-        <a href="#" onclick="setMapCenter('houston'); closeNav();">Houston</a>
-        <a href="#" onclick="setMapCenter('los angeles'); closeNav();">Los Angeles</a>
-        <a href="#" onclick="setMapCenter('new york'); closeNav();">New York</a>
-        <a href="#" onclick="setMapCenter('philadelphia'); closeNav();">Philadelphia</a>
-        <a href="#" onclick="setMapCenter('san francisco'); closeNav();">San Francisco</a>
-        <a href="#" onclick="setMapCenter('seattle'); closeNav();">Seattle</a>
-        <a href="#" onclick="setMapCenter('washington d.c.'); closeNav();">Washington D.C.</a>
+        <button class="dropdown-btn">Locations<i class="fa fa-caret-down" style="width:20px; margin-top:5px"></i></button>
+        <div class="dropdown-container">
+            <a href="#" onclick="setMapCenter('atlanta'); closeNav();">Atlanta</a>
+            <a href="#" onclick="setMapCenter('chicago'); closeNav();">Chicago</a>
+            <a href="#" onclick="setMapCenter('dallas'); closeNav();">Dallas</a>
+            <a href="#" onclick="setMapCenter('houston'); closeNav();">Houston</a>
+            <a href="#" onclick="setMapCenter('los angeles'); closeNav();">Los Angeles</a>
+            <a href="#" onclick="setMapCenter('new york'); closeNav();">New York</a>
+            <a href="#" onclick="setMapCenter('philadelphia'); closeNav();">Philadelphia</a>
+            <a href="#" onclick="setMapCenter('san francisco'); closeNav();">San Francisco</a>
+            <a href="#" onclick="setMapCenter('seattle'); closeNav();">Seattle</a>
+            <a href="#" onclick="setMapCenter('washington d.c.'); closeNav();">Washington D.C.</a>
+        </div>
     </div>
 
     <!--  start autocomplete -->
-    <script>startAutoComplete();</script>
+    <script>startAutoComplete(); enableDropdown(); </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANqUtYmljlNfnEeqXAlazfOZIfzS0U-qs&callback=initMap"></script>
 </body>
 </html>

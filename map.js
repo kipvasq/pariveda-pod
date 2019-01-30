@@ -1,19 +1,21 @@
 // global variables
-var map; // NEED ONE COPY OF MAP INSTANCE
-var geocoder; // NEED ONE COPY OF GEOCODER INSTANCE
+var map;            // NEED ONE COPY OF MAP INSTANCE
+var geocoder;       // NEED ONE COPY OF GEOCODER INSTANCE
+var markers = [];   // NEED ONE COPY OF MARKERS INSTANCE
 
-function sleep(miliseconds) {
+// sleep for x milliseconds
+function sleep(milliseconds) {
    var currentTime = new Date().getTime();
-   while (currentTime + miliseconds >= new Date().getTime()) { }
+   while (currentTime + milliseconds >= new Date().getTime()) { }
 }
 
+// add marker on map
 function addMarker(location){
     if(location.latLng.lat == -1.0 && location.latLng.lng == -1.0){ // offices
         var result = geocoder.geocode({'address': location.address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-                var lat = results[0].geometry.location.lat();
-                var lng = results[0].geometry.location.lng();
-
+                location.latLng.lat = results[0].geometry.location.lat();
+                location.latLng.lng = results[0].geometry.location.lng();
                 generateMarker(location);
             } else {
                 console.log("failed - ", location.name, location.address, location.type, results, status);
@@ -24,6 +26,7 @@ function addMarker(location){
     }
 }
 
+// generate marker, infowindow with html
 function generateMarker(location){
     // define icon
     var icon = "";
@@ -63,16 +66,34 @@ function generateMarker(location){
     var marker = new google.maps.Marker({
                 position: {lat: location.latLng.lat, lng: location.latLng.lng},
                 map: map,
-                title: location.name + " - " + location.type,
-                icon: icon
+                title: location.name,
+                icon: icon,
+                infowindow: infowindow
             });
+    markers.push(marker);
 
     // action to open
     marker.addListener('click', function() {
+            hideAllMarkers();
+            map.setCenter(marker.getPosition());
             infowindow.open(map, marker);
+            map.setZoom(9.0);
+        });
+
+    // action to close
+    google.maps.event.addListener(map, "click", function(event) {
+            infowindow.close(map, marker);
         });
 }
 
+// hide all markers on map
+function hideAllMarkers(){
+    markers.forEach(function(marker) {
+        marker.infowindow.close(map, marker);
+    });
+}
+
+// set map center given location (i.e. string)
 function setMapCenter(location){
     // process location geocode
     var result = geocoder.geocode({'address': location}, function(results, status) {
@@ -87,6 +108,7 @@ function setMapCenter(location){
     });
 }
 
+// pariveda center button
 function CenterControl(controlDiv, map) {
     var centerUS = {lat: 39.8283, long: -98.407606};
 
@@ -116,6 +138,7 @@ function CenterControl(controlDiv, map) {
 
 }
 
+// initalize map
 function initMap() {
     var mapProp = {
         center: new google.maps.LatLng(39.8283, -98.407606),

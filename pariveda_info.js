@@ -76,25 +76,25 @@ var sanfranciscoClients = [ new Location("3Degrees", "4, 407 Sansome St, San Fra
                        new Location("eBay", "199 Fremont St, San Francisco, CA 94105", {lat: 37.789884, lng: -122.39489}, "client", "San Francisco")
                       ];
 
-var seattleClients = [ new Location("Amazon.com Inc.", "410 Terry Ave N, Seattle, WA 98109", {lat: 47.622318, lng: -122.33664}, "client", "Saeattle"),
-                       new Location("A Place for Mom", "701 5th Ave suite 3200, Seattle, WA 98104", {lat: 47.60435, lng: -122.32991}, "client", "Saeattle"),
-                       new Location("COlliers International", "601 Union St Suite 3320, Seattle, WA 98101", {lat: 47.61046, lng: -122.33215}, "client", "Saeattle"),
-                       new Location("Expedia.com", "645 Elliott Ave W #200, Seattle, WA 98119", {lat: 47.626122, lng: -122.36849}, "client", "Saeattle"),
-                       new Location("Fatigue Technology Inc", "401 Andover Park E, Tukwila, WA 98188", {lat: 47.452763, lng: -122.25164}, "client", "Saeattle")
+var seattleClients = [ new Location("Amazon.com Inc.", "410 Terry Ave N, Seattle, WA 98109", {lat: 47.622318, lng: -122.33664}, "client", "Seattle"),
+                       new Location("A Place for Mom", "701 5th Ave suite 3200, Seattle, WA 98104", {lat: 47.60435, lng: -122.32991}, "client", "Seattle"),
+                       new Location("Colliers International", "601 Union St Suite 3320, Seattle, WA 98101", {lat: 47.61046, lng: -122.33215}, "client", "Seattle"),
+                       new Location("Expedia.com", "645 Elliott Ave W #200, Seattle, WA 98119", {lat: 47.626122, lng: -122.36849}, "client", "Seattle"),
+                       new Location("Fatigue Technology Inc", "401 Andover Park E, Tukwila, WA 98188", {lat: 47.452763, lng: -122.25164}, "client", "Seattle")
                       ];
 
 var washingtondcClients = [];
 
 var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #375, Atlanta, GA 30309​", {lat: -1.0, lng: -1.0}, "office", "(404) 528-1120​", "atlanta@parivedasolutions.com", atlantaClients),
                new Location("Chicago", "​​​​​​​​​​​20 N. Wacker Dr.​ #2620, Chicago, IL 60606", {lat: -1.0, lng: -1.0}, "office", "(312) 902-5700", "chicago@parivedasolutions.com", chicagoClients),
-               new Location("Dallas", "2811 McKin​ney Ave​ #220, LB 126, Dallas, TX  75204​​", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("Houston", "​​​​​​​​​​​​24 E. Greenway Plaza​ #1717, Houston, TX 77046", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("Los Angeles", "222 N. Sepulveda Blvd. #2120, El Segundo, CA 90245", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("New York", "​​​​​​​​​​​​​​​​​​​​​​150 East 52nd Street​ #8002, New York, NY 10022", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("Philadelphia", "1601 Market St 19th Floor, Philadelphia, PA 19103", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", atlantaClients),
-               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", atlantaClients)
+               new Location("Dallas", "2811 McKin​ney Ave​ #220, LB 126, Dallas, TX  75204​​", {lat: -1.0, lng: -1.0}, "office", dallasClients),
+               new Location("Houston", "​​​​​​​​​​​​24 E. Greenway Plaza​ #1717, Houston, TX 77046", {lat: -1.0, lng: -1.0}, "office", houstonClients),
+               new Location("Los Angeles", "222 N. Sepulveda Blvd. #2120, El Segundo, CA 90245", {lat: -1.0, lng: -1.0}, "office", losangelesClients),
+               new Location("New York", "​​​​​​​​​​​​​​​​​​​​​​150 East 52nd Street​ #8002, New York, NY 10022", {lat: -1.0, lng: -1.0}, "office", newyorkClients),
+               new Location("Philadelphia", "1601 Market St 19th Floor, Philadelphia, PA 19103", {lat: -1.0, lng: -1.0}, "office", philadelphiaClients),
+               new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", sanfranciscoClients),
+               new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", seattleClients),
+               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients)
            ];
 
 var fins = [new Fin("Juan Vasquez", "Dallas", "N/A"),

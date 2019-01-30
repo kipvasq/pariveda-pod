@@ -1,4 +1,4 @@
-// enter submission
+// submission of search text
 $(document).keypress(function(event){
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13'){
@@ -10,6 +10,7 @@ $(document).keypress(function(event){
             if(search == content[i].name){
                 trigger = true;
                 setMapCenter(content[i].address);
+                openMarker(content[i].name);
             }
         }
 
@@ -18,6 +19,16 @@ $(document).keypress(function(event){
         }
 	}
 });
+
+// open individual marker if searched (and matches)
+function openMarker(name){
+    for(var i = 0; i < markers.length; i++){
+        if(name == markers[i].title){
+            hideAllMarkers();
+            markers[i].infowindow.open(map, markers[i]);
+        }
+    }
+}
 
 // initalize autocomplete
 function startAutoComplete(){

@@ -1,3 +1,22 @@
+
+var map; // NEED ONE COPY OF MAP INSTNCE
+
+function setMapCenter(location){
+    var geocoder = new google.maps.Geocoder();
+
+    // process location geocode
+    var result = geocoder.geocode({'address': location}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            var lat = results[0].geometry.location.lat();
+            var lng = results[0].geometry.location.lng();
+            map.setCenter(new google.maps.LatLng(lat, lng));
+            map.setZoom(9.0);
+        } else {
+            alert("Unable to find '" + location + "': " + status);
+        }
+    });
+}
+
 function CenterControl(controlDiv, map) {
     var centerUS = {lat: 39.8283, long: -98.407606};
 
@@ -22,7 +41,7 @@ function CenterControl(controlDiv, map) {
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
     map.setCenter(new google.maps.LatLng(centerUS["lat"], centerUS["long"]));
-    map.setZoom(4.25);
+    map.setZoom(4.40);
     });
 
 }
@@ -41,7 +60,7 @@ function initMap() {
     };
 
     // map instance
-    var map = new google.maps.Map(document.getElementById("map"), mapProp);
+    map = new google.maps.Map(document.getElementById("gMap"), mapProp);
 
     // initally get client location (https://developers.google.com/maps/documentation/javascript/geolocation)
     if (navigator.geolocation) {
@@ -56,5 +75,4 @@ function initMap() {
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
-
 }

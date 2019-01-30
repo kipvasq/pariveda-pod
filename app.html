@@ -16,23 +16,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- JavaScript Includes -->
-    <script type="text/javascript" src="map.js"></script>
-    <script type="text/javascript" src="navbar.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="navbar.js"></script>
+    <script type="text/javascript" src="search.js"></script>
+
 
 </head>
 <body>
     <div id="main" class="position-relative fullscreen">
         <!-- map element must be first because its on botton -->
-        <div id="map" class="position-absolute fullscreen"></div>
+        <div id="gMap" class="position-absolute fullscreen"></div>
 
-        <!-- search -->
-        <form class="position-absolute search-bar">
-		    <input type="search" placeholder="Search">
+        <!-- search bar -->
+        <form class="position-absolute search-bar" onkeyup="userSearch()">
+		    <input id="searchBar" type="search" placeholder="Search Pariveda">
         </form>
 
-        <!-- navigation bar -->
+        <!-- navigation bar hidden -->
         <a href="#" onclick="openNav()" class="position-absolute hamburgernav">
           <svg class="hamburgernav" width="40" height="40" id="icoOpen">
               <path d="M0,5 30,5" stroke="#3179a7" stroke-width="5"/>
@@ -42,14 +45,32 @@
         </a>
     </div>
 
+    <!-- navigation bar open -->
     <div id="sideNavigation" class="sidenav position-absolute">
+        <img src="img/Pariveda_logo_long_white.png" alt="Pariveda solutions logo" width="200px" class="ml-3">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Features</a>
-        <a href="#">Contact Us</a>
+        <a href="https://pariveda.sharepoint.com/SitePages/Deepblue.aspx" target="_blank">DeepBlue</a>
+        <a href="https://theocean.parivedasolutions.com/people" target="_blank">The Ocean</a>
+        <a href="https://app.highground.com/#/login/pariveda-sso" target="_blank">HighGround</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <a href="#" onclick="setMapCenter('atlanta'); closeNav();">Atlanta</a>
+        <a href="#" onclick="setMapCenter('chicago'); closeNav();">Chicago</a>
+        <a href="#" onclick="setMapCenter('dallas'); closeNav();">Dallas</a>
+        <a href="#" onclick="setMapCenter('houston'); closeNav();">Houston</a>
+        <a href="#" onclick="setMapCenter('los angeles'); closeNav();">Los Angeles</a>
+        <a href="#" onclick="setMapCenter('new york'); closeNav();">New York</a>
+        <a href="#" onclick="setMapCenter('philadelphia'); closeNav();">Philadelphia</a>
+        <a href="#" onclick="setMapCenter('san francisco'); closeNav();">San Francisco</a>
+        <a href="#" onclick="setMapCenter('seattle'); closeNav();">Seattle</a>
+        <a href="#" onclick="setMapCenter('washington d.c.'); closeNav();">Washington D.C.</a>
     </div>
 
+    <!--  start autocomplete -->
+    <script>startAutoComplete();</script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANqUtYmljlNfnEeqXAlazfOZIfzS0U-qs&callback=initMap"></script>
-
 </body>
 </html>

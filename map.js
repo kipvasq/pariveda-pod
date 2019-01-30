@@ -1,6 +1,29 @@
 
 var map; // NEED ONE COPY OF MAP INSTNCE
 
+function addMarker(name, address, type){
+    var geocoder = new google.maps.Geocoder();
+
+    var result = geocoder.geocode({'address': address}, function(results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+            var lat = results[0].geometry.location.lat();
+            var lng = results[0].geometry.location.lng();
+
+
+            console.log(lat + ", " + lng);
+
+            var marker = new google.maps.Marker({
+                  position: {lat: lat, lng: lng},
+                  map: map,
+                  title: name + " - " + type
+                });
+        } else {
+            console.log(name, address, type);
+        }
+    });
+}
+
 function setMapCenter(location){
     var geocoder = new google.maps.Geocoder();
 
@@ -48,8 +71,8 @@ function CenterControl(controlDiv, map) {
 
 function initMap() {
     var mapProp = {
-        center: new google.maps.LatLng(23.792750, 90.407606),
-        zoom: 5,
+        center: new google.maps.LatLng(39.8283, -98.407606),
+        zoom: 4.40,
         zoomControl: true,
         scaleControl: true,
         mapTypeControl: true,
@@ -75,4 +98,10 @@ function initMap() {
     var centerControlDiv = document.createElement('div');
     var centerControl = new CenterControl(centerControlDiv, map);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+
+    // add offices on map
+    for (i = 0; i < content.length; i++) {
+        console.log(content);
+        addMarker(content[i].name, content[i].address, content[i].type);
+    }
 }

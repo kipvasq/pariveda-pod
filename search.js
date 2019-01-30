@@ -1,54 +1,3 @@
-class Location {
-    constructor(name, address="N/A", type="N/A", connection){
-        this.name = name;
-        this.address = address;
-        this.type = type;
-
-        if(this.type == "office"){
-            this.client = connection;
-        } else {
-            this.market = connection;
-        }
-    }
-}
-
-class Fin {
-    constructor(name, office, client) {
-        this.name = name;
-        this.office = office;
-        this.client = client;
-    }
-}
-
-var atlantaClients = [new Location("client1", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                      new Location("client1", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                      new Location("client3", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                      new Location("client4", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                      new Location("client5", "INSERT_ADDRESS_HERE", "client", "Atlanta")
-                      ];
-
-var chicagoClients = [ new Location("client6", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                       new Location("client7", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                       new Location("client8", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                       new Location("client9", "INSERT_ADDRESS_HERE", "client", "Atlanta"),
-                       new Location("client10", "INSERT_ADDRESS_HERE", "client", "Atlanta")
-                      ];
-
-var offices = [new Location("Atlanta", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Chicago", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Dallas", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Houston", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Los Angeles", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("New York", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Philadelphia", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("San Francisco", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Seattle", "INSERT_ADDRESS_HERE", "office", atlantaClients),
-               new Location("Washington D.C.", "INSERT_ADDRESS_HERE", "office", atlantaClients)
-           ];
-
-var fins = [new Fin("Juan Vasquez", "Dallas", "N/A"),
-            new Fin("Jake Altabef", "New York", "N/A")];
-
 $(document).keypress(function(event){
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13'){
@@ -69,7 +18,6 @@ function userSearch(){
 function startAutoComplete(){
     var input = document.getElementById("searchBar");
     var currentFocus;
-    var content = offices.concat(atlantaClients.concat(chicagoClients));
 
     // register input listener
     input.addEventListener("input", function(e){

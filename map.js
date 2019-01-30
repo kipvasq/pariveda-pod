@@ -1,36 +1,47 @@
+// global variables
+var map; // NEED ONE COPY OF MAP INSTANCE
+var geocoder; // NEED ONE COPY OF GEOCODER INSTANCE
 
-var map; // NEED ONE COPY OF MAP INSTNCE
+function sleep(miliseconds) {
+   var currentTime = new Date().getTime();
+   while (currentTime + miliseconds >= new Date().getTime()) { }
+}
 
-function addMarker(name, address, type){
-    var geocoder = new google.maps.Geocoder();
+function addMarker(name, address, latLng, type){
+    console.log(name, latLng);
+    if(latLng.lat == -1.0 && latLng.lng == -1.0){ // offices
+        var result = geocoder.geocode({'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                var lat = results[0].geometry.location.lat();
+                var lng = results[0].geometry.location.lng();
 
-    console.log(address)
-    var result = geocoder.geocode({'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-            var lat = results[0].geometry.location.lat();
-            var lng = results[0].geometry.location.lng();
+                //console.log(name + " - " + lat + ", " + lng);
 
-            console.log(name + " - " + lat + ", " + lng);
-
-            var marker = new google.maps.Marker({
-                  position: {lat: lat, lng: lng},
-                  map: map,
-                  title: name + " - " + type
-                });
-        } else {
-            console.log("failed - ", name, address, type, results, status);
-        }
-    });
+                var marker = new google.maps.Marker({
+                      position: {lat: lat, lng: lng},
+                      map: map,
+                      title: name + " - " + type
+                    });
+            } else {
+                console.log("failed - ", name, address, type, results, status);
+            }
+        });
+    } else { // clients
+        var marker = new google.maps.Marker({
+              position: {lat: latLng["lat"], lng: latLng["lng"]},
+              map: map,
+              title: name + " - " + type
+            });
+    }
 }
 
 function setMapCenter(location){
-    var geocoder = new google.maps.Geocoder();
-
     // process location geocode
     var result = geocoder.geocode({'address': location}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
             var lat = results[0].geometry.location.lat();
             var lng = results[0].geometry.location.lng();
+            console.log(location, lat, lng);
             map.setCenter(new google.maps.LatLng(lat, lng));
             map.setZoom(9.0);
         } else {
@@ -84,6 +95,9 @@ function initMap() {
     // map instance
     map = new google.maps.Map(document.getElementById("gMap"), mapProp);
 
+    // geocoder instance
+    geocoder = new google.maps.Geocoder();
+
     // initally get client location (https://developers.google.com/maps/documentation/javascript/geolocation)
     if (navigator.geolocation) {
          navigator.geolocation.getCurrentPosition(function (position) {
@@ -98,8 +112,8 @@ function initMap() {
     var centerControl = new CenterControl(centerControlDiv, map);
     map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
-    // add offices on map
+    // add content on map
     for (i = 0; i < content.length; i++) {
-        addMarker(content[i].name, content[i].address, content[i].type);
+        addMarker(content[i].name, content[i].address, content[i].latLng, content[i].type);
     }
 }

@@ -1,20 +1,25 @@
+// enter submission
 $(document).keypress(function(event){
 	var keycode = (event.keyCode ? event.keyCode : event.which);
 	if(keycode == '13'){
         var searchValue = document.getElementById("searchBar");
         var search = searchValue.value;
-        setMapCenter(search);
-		//alert("Insert Pan To '" + search + "' Here...");
+        var trigger = false;
+
+        for(var i = 0; i < content.length; i++){
+            if(search == content[i].name){
+                trigger = true;
+                setMapCenter(content[i].address);
+            }
+        }
+
+        if(!trigger){
+            setMapCenter(search);
+        }
 	}
 });
 
-function userSearch(){
-    var search = document.getElementById("searchBar").value;
-
-    // filter user input
-    //console.log(offices.filter(office => office.toLowerCase().includes(search.toLowerCase())));
-}
-
+// initalize autocomplete
 function startAutoComplete(){
     var input = document.getElementById("searchBar");
     var currentFocus;

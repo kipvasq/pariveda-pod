@@ -102,6 +102,7 @@ function setMapCenter(location){
             var lng = results[0].geometry.location.lng();
             map.setCenter(new google.maps.LatLng(lat, lng));
             map.setZoom(9.0);
+            openMarker(location);
         } else {
             alert("Unable to find '" + location + "': " + status);
         }

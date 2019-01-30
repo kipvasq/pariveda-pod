@@ -8,31 +8,69 @@ function sleep(miliseconds) {
 }
 
 function addMarker(name, address, latLng, type){
-    console.log(name, latLng);
     if(latLng.lat == -1.0 && latLng.lng == -1.0){ // offices
         var result = geocoder.geocode({'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var lat = results[0].geometry.location.lat();
                 var lng = results[0].geometry.location.lng();
 
-                //console.log(name + " - " + lat + ", " + lng);
-
-                var marker = new google.maps.Marker({
-                      position: {lat: lat, lng: lng},
-                      map: map,
-                      title: name + " - " + type
-                    });
+                generateMarker(name, address, lat, lng, type);
             } else {
                 console.log("failed - ", name, address, type, results, status);
             }
         });
     } else { // clients
-        var marker = new google.maps.Marker({
-              position: {lat: latLng["lat"], lng: latLng["lng"]},
-              map: map,
-              title: name + " - " + type
-            });
+        generateMarker(name, address, latLng["lat"], latLng["lng"], type);
     }
+}
+
+function generateMarker(name, address, lat, lng, type){
+    // define icon
+    var icon = "";
+    if(type == "office"){
+        icon = "./img/pariveda_logo_icon.png"
+    } else {
+        icon = "./img/superman.png"
+    }
+
+    var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">' + name + '</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+            'sandstone rock formation in the southern part of the '+
+            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+            'south west of the nearest large town, Alice Springs; 450&#160;km '+
+            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+            'Aboriginal people of the area. It has many springs, waterholes, '+
+            'rock caves and ancient paintings. Uluru is listed as a World '+
+            'Heritage Site.</p>'+
+            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>';
+
+    // detailed view of window
+    var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+    // marker with icon
+    var marker = new google.maps.Marker({
+                position: {lat: lat, lng: lng},
+                map: map,
+                title: name + " - " + type,
+                icon: icon
+            });
+
+    // action to open
+    marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
 }
 
 function setMapCenter(location){
@@ -41,7 +79,6 @@ function setMapCenter(location){
         if (status == google.maps.GeocoderStatus.OK) {
             var lat = results[0].geometry.location.lat();
             var lng = results[0].geometry.location.lng();
-            console.log(location, lat, lng);
             map.setCenter(new google.maps.LatLng(lat, lng));
             map.setZoom(9.0);
         } else {

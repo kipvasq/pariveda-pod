@@ -7,27 +7,27 @@ function sleep(miliseconds) {
    while (currentTime + miliseconds >= new Date().getTime()) { }
 }
 
-function addMarker(name, address, latLng, type){
-    if(latLng.lat == -1.0 && latLng.lng == -1.0){ // offices
-        var result = geocoder.geocode({'address': address}, function(results, status) {
+function addMarker(location){
+    if(location.latLng.lat == -1.0 && location.latLng.lng == -1.0){ // offices
+        var result = geocoder.geocode({'address': location.address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 var lat = results[0].geometry.location.lat();
                 var lng = results[0].geometry.location.lng();
 
-                generateMarker(name, address, lat, lng, type);
+                generateMarker(location);
             } else {
-                console.log("failed - ", name, address, type, results, status);
+                console.log("failed - ", location.name, location.address, location.type, results, status);
             }
         });
     } else { // clients
-        generateMarker(name, address, latLng["lat"], latLng["lng"], type);
+        generateMarker(location);
     }
 }
 
-function generateMarker(name, address, lat, lng, type){
+function generateMarker(location){
     // define icon
     var icon = "";
-    if(type == "office"){
+    if(location.type == "office"){
         icon = "./img/pariveda_logo_icon.png"
     } else {
         icon = "./img/superman.png"
@@ -36,7 +36,7 @@ function generateMarker(name, address, lat, lng, type){
     var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">' + name + '</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">' + location.name + '</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
             'sandstone rock formation in the southern part of the '+
@@ -61,9 +61,9 @@ function generateMarker(name, address, lat, lng, type){
 
     // marker with icon
     var marker = new google.maps.Marker({
-                position: {lat: lat, lng: lng},
+                position: {lat: location.latLng.lat, lng: location.latLng.lng},
                 map: map,
-                title: name + " - " + type,
+                title: location.name + " - " + location.type,
                 icon: icon
             });
 
@@ -151,6 +151,6 @@ function initMap() {
 
     // add content on map
     for (i = 0; i < content.length; i++) {
-        addMarker(content[i].name, content[i].address, content[i].latLng, content[i].type);
+        addMarker(content[i]);
     }
 }

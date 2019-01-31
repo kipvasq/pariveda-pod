@@ -36,26 +36,48 @@ function generateMarker(location){
         icon = "./img/superman.png"
     }
 
-    var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">' + location.name + '</h1>'+
-            '<div id="bodyContent">'+
-            '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-            'sandstone rock formation in the southern part of the '+
-            'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
-            'south west of the nearest large town, Alice Springs; 450&#160;km '+
-            '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
-            'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-            'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-            'Aboriginal people of the area. It has many springs, waterholes, '+
-            'rock caves and ancient paintings. Uluru is listed as a World '+
-            'Heritage Site.</p>'+
-            '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-            'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-            '(last visited June 22, 2009).</p>'+
-            '</div>'+
-            '</div>';
+    // var contentString = '<div id="iw-container">' +
+    //                 '<div class="iw-title">' + location.name + '</div>' +
+    //                 '<div class="iw-content">' +
+    //                   '<div class="iw-subTitle">History</div>' +
+    //                   '<img src="http://maps.marnoto.com/en/5wayscustomizeinfowindow/images/vistalegre.jpg" alt="Porcelain Factory of Vista Alegre" height="115" width="83">' +
+    //                   '<p>Founded in 1824, the Porcelain Factory of Vista Alegre was the first industrial unit dedicated to porcelain production in Portugal. For the foundation and success of this risky industrial development was crucial the spirit of persistence of its founder, José Ferreira Pinto Basto. Leading figure in Portuguese society of the nineteenth century farm owner, daring dealer, wisely incorporated the liberal ideas of the century, having become "the first example of free enterprise" in Portugal.</p>' +
+    //                   '<div class="iw-subTitle">Contacts</div>' +
+    //                   '<p>VISTA ALEGRE ATLANTIS, SA<br>3830-292 Ílhavo - Portugal<br>'+
+    //                   '<br>Phone. +351 234 320 600<br>e-mail: geral@vaa.pt<br>www: www.myvistaalegre.com</p>'+
+    //                 '</div>' +
+    //                 '<div class="iw-bottom-gradient"></div>' +
+    //               '</div>';
+
+    var infoString = 'Info';
+    var finString = 'Fins';
+    var connectionString = 'Connections';
+
+    var contentString = '<div id="iw-container">' +
+                        '<div class="iw-title">' + location.name + '</div>' +
+                        '<div class="iw-content">' +
+                            '<button class="tablink" onclick="openPage(\'Info\', this, \'red\')" id="defaultOpen">Info</button>' +
+                            '<button class="tablink" onclick="openPage(\'Fins\', this, \'red\')">Fins</button>' +
+                            '<button class="tablink" onclick="openPage(\'Links\', this, \'red\')">Links</button>' +
+                            '<button class="tablink" onclick="openPage(\'About\', this, \'red\')">About</button>' +
+                            '<div id="Info" class="tabcontent">' +
+                                '<h3>Info</h3>' +
+                                '<p>Home is where the heart is..</p>' +
+                            '</div>' +
+                            '<div id="Fins" class="tabcontent">' +
+                                '<h3>Fins</h3>' +
+                                '<p>Some news this fine day!</p>' +
+                            '</div>' +
+                            '<div id="Links" class="tabcontent">' +
+                                '<h3>Links</h3>' +
+                                '<p>Get in touch, or swing by for a cup of coffee.</p>' +
+                            '</div>' +
+                            '<div id="About" class="tabcontent">' +
+                                '<h3>About</h3>' +
+                                '<p>Who we are and what we do.</p>' +
+                            '</div>' +
+                            '<div class="iw-bottom-gradient"></div>' +
+                        '</div>';
 
     // detailed view of window
     var infowindow = new google.maps.InfoWindow({
@@ -84,6 +106,72 @@ function generateMarker(location){
     google.maps.event.addListener(map, "click", function(event) {
             infowindow.close(map, marker);
         });
+
+    // style infowindow
+    styleInfoWindow(infowindow);
+}
+
+function openPage(pageName, elmnt, color) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+    }
+    document.getElementById(pageName).style.display = "block";
+    elmnt.style.backgroundColor = color;
+}
+
+
+function styleInfoWindow(infowindow){
+    google.maps.event.addListener(infowindow, 'domready', function() {
+
+        // Reference to the DIV that wraps the bottom of infowindow
+        var iwOuter = $('.gm-style-iw');
+
+        /* Since this div is in a position prior to .gm-div style-iw.
+        * We use jQuery and create a iwBackground variable,
+        * and took advantage of the existing reference .gm-style-iw for the previous div with .prev().
+        */
+        var iwBackground = iwOuter.prev();
+
+        // Removes background shadow DIV
+        iwBackground.children(':nth-child(2)').css({'display' : 'none'});
+
+        // Removes white background DIV
+        iwBackground.children(':nth-child(4)').css({'display' : 'none'});
+
+        // Moves the infowindow 115px to the right.
+        iwOuter.parent().parent().css({left: '115px'});
+
+        // Moves the shadow of the arrow 76px to the left margin.
+        iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+        // Moves the arrow 76px to the left margin.
+        iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+
+        // Changes the desired tail shadow color.
+        iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index' : '1'});
+
+        // Reference to the div that groups the close button elements.
+        var iwCloseBtn = iwOuter.next();
+
+        // Apply the desired effect to the close button
+        iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #48b5e9', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+
+        // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
+        if($('.iw-content').height() < 140){
+        $('.iw-bottom-gradient').css({display: 'none'});
+        }
+
+        // The API automatically applies 0.7 opacity to the button after the mouseout event. This function reverses this event to the desired value.
+        iwCloseBtn.mouseout(function(){
+            $(this).css({opacity: '1'});
+        });
+    });
 }
 
 // hide all markers on map
@@ -134,6 +222,7 @@ function CenterControl(controlDiv, map) {
     // Setup the click event listeners: simply set the map to Chicago.
     controlUI.addEventListener('click', function() {
     map.setCenter(new google.maps.LatLng(centerUS["lat"], centerUS["long"]));
+    hideAllMarkers();
     map.setZoom(4.40);
     });
 

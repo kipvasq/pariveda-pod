@@ -8,9 +8,15 @@ $(document).keypress(function(event){
 
         for(var i = 0; i < content.length; i++){
             if(search == content[i].name){
+              if(content[i].address == undefined){
+                trigger = true;
+                setMapCenter(content[i].office);
+                openMarker(content[i].office);
+              } else{
                 trigger = true;
                 setMapCenter(content[i].address);
                 openMarker(content[i].name);
+              }
             }
         }
 

@@ -96,7 +96,8 @@ var chicagoFins = [new Fin("Adrian Kosciak", "Chicago","M3"),
             new Fin("Al Ilseman", "Chicago","C2"),
             new Fin("Andy Hoch", "Chicago", "A2"),
             new Fin("Andy Sindoni", "Chicago", "M2"),
-            new Fin("Anthony Daegele", "Chicago", "C1")];
+            new Fin("Anthony Daegele", "Chicago", "C1"),
+            new Fin("Joel Eliason", "Chicago", "C1")];
 
 var dallasFins = [new Fin("Juan Vasquez", "Dallas", "C1"),
             new Fin("Aaron Boswell", "Dallas", "V7"),
@@ -108,7 +109,8 @@ var houstonFins = [new Fin("Alan Henson", "Houston", "P3"),
             new Fin("Alex Benavides", "Houston", "C2"),
             new Fin("Alex Mong", "Houston", "A2"),
             new Fin("Alex Tai", "Houston", "P2"),
-            new Fin("Allison Esenkova", "Houston", "V4")];
+            new Fin("Allison Esenkova", "Houston", "V4"),
+            new Fin("Jordan Buchanan", "Houston", "C1")];
 
 var losangelesFins = [new Fin("Anu Duggirala", "Los Angeles", "M3"),
             new Fin("Albert Cassanova", "Los Angeles", "M1"),
@@ -126,13 +128,15 @@ var philadelphiaFins = [new Fin("Amy Young", "Philadelphia", "P1"),
             new Fin("Cesar Giralt", "Philadelphia", "P1"),
             new Fin("Chris Martin", "Philadelphia", "A1"),
             new Fin("Chris Payne", "Philadelphia", "C2"),
-            new Fin("Drew Zucker", "Philadelphia", "A1")];
+            new Fin("Drew Zucker", "Philadelphia", "A1"),
+            new Fin("Stephen Godderidge", "Philadelphia", "C1")];
 
 var sanfranciscoFins = [new Fin("Adrian Meza", "San Francisco", "A1"),
             new Fin("Alex Deany", "San Francisco", "C1"),
             new Fin("Alex Miller", "San Francisco", "A1"),
             new Fin("Alexandria Johnson", "San Francisco", "M1"),
-            new Fin("Allison Mar", "San Francisco", "C2")];
+            new Fin("Allison Mar", "San Francisco", "C2"),
+            new Fin("Christian Cuellar", "San Francisco", "C1")];
 
 var seattleFins = [new Fin("Akhil Patel", "Seattle", "P3"),
             new Fin("Alan Hsu", "Seattle", "M3"),
@@ -144,7 +148,8 @@ var washingtondcFins = [new Fin("Aaron Fisher", "Washington D.C.", "M3"),
             new Fin("Anthony Perozze", "Washington D.C.", "A1"),
             new Fin("Brett Fox", "Washington D.C.", "A1"),
             new Fin("Charlotte Doney", "Washington D.C.", "C1"),
-            new Fin("Cody Collins", "Washington D.C.", "C2")];
+            new Fin("Cody Collins", "Washington D.C.", "C2"),
+            new Fin("Trace Tschida", "Washington D.C.", "C1")];
 
 //constructor(name, address="N/A", latLng={lat: 0.0, lng: 0.0}, type="N/A", connection, phone="", email="", finlist=[])
 var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #375, Atlanta, GA 30309​", {lat: -1.0, lng: -1.0}, "office", atlantaClients, "(404) 528-1120​", "atlanta@parivedasolutions.com", atlantaFins),
@@ -171,3 +176,13 @@ content = content.concat(philadelphiaClients);
 content = content.concat(sanfranciscoClients);
 content = content.concat(seattleClients);
 content = content.concat(washingtondcClients);
+content = content.concat(atlantaFins);
+content = content.concat(chicagoFins);
+content = content.concat(dallasFins);
+content = content.concat(houstonFins);
+content = content.concat(losangelesFins);
+content = content.concat(newyorkFins);
+content = content.concat(philadelphiaFins);
+content = content.concat(sanfranciscoFins);
+content = content.concat(seattleFins);
+content = content.concat(washingtondcFins);

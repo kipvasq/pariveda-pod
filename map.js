@@ -11,18 +11,22 @@ function sleep(milliseconds) {
 
 // add marker on map
 function addMarker(location){
-    if(location.latLng.lat == -1.0 && location.latLng.lng == -1.0){ // offices
-        var result = geocoder.geocode({'address': location.address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                location.latLng.lat = results[0].geometry.location.lat();
-                location.latLng.lng = results[0].geometry.location.lng();
-                generateMarker(location);
-            } else {
-                console.log("failed - ", location.name, location.address, location.type, results, status);
-            }
-        });
-    } else { // clients
-        generateMarker(location);
+    try{
+        if(location.latLng.lat == -1.0 && location.latLng.lng == -1.0){ // offices
+            var result = geocoder.geocode({'address': location.address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    location.latLng.lat = results[0].geometry.location.lat();
+                    location.latLng.lng = results[0].geometry.location.lng();
+                    generateMarker(location);
+                } else {
+                    console.log("failed - ", location.name, location.address, location.type, results, status);
+                }
+            });
+        } else { // clients
+            generateMarker(location);
+        }
+    } catch(error){
+        // fin
     }
 }
 

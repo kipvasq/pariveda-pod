@@ -16,10 +16,10 @@ class Location {
 }
 
 class Fin {
-    constructor(name, office, client) {
+    constructor(name, office, cohort) {
         this.name = name;
         this.office = office;
-        this.client = client;
+        this.client = cohort;
     }
 }
 
@@ -97,8 +97,65 @@ var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #37
                new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients)
            ];
 
-var fins = [new Fin("Juan Vasquez", "Dallas", "N/A"),
-            new Fin("Jake Altabef", "New York", "N/A")];
+var atlantaFins = [new Fin("Alex Lyons", "Atlanta","C2"),
+            new Fin("Alex Parker", "Atlanta", "P2"),
+            new Fin("Alex Rogers", "Atlanta", "C1"),
+            new Fin("Antony Lauders", "Atlanta", "A1"),
+            new Fin("Brad Twining", "Atlanta", "M2")];
+
+var chicagoFins = [new Fin("Adrian Kosciak", "Chicago","M3"),
+            new Fin("Al Ilseman", "Chicago","C2"),
+            new Fin("Andy Hoch", "Chicago", "A2"),
+            new Fin("Andy Sindoni", "Chicago", "M2"),
+            new Fin("Anthony Daegele", "Chicago", "C1")];
+
+var dallasFins = [new Fin("Juan Vasquez", "Dallas", "C1"),
+            new Fin("Aaron Boswell", "Dallas", "V7"),
+            new Fin("Allen Nguyen", "Dallas", "M2"),
+            new Fin("Allison Grindle", "Dallas", "M1"),
+            new Fin("Allison Moy", "Dallas", "A1")];
+
+var houstonFins = [new Fin("Alan Henson", "Houston", "P3"),
+            new Fin("Alex Benavides", "Houston", "C2"),
+            new Fin("Alex Mong", "Houston", "A2"),
+            new Fin("Alex Tai", "Houston", "P2"),
+            new Fin("Allison Esenkova", "Houston", "V4")];
+
+var losangelesFins = [new Fin("Anu Duggirala", "Los Angeles", "M3"),
+            new Fin("Albert Cassanova", "Los Angeles", "M1"),
+            new Fin("Avi Suntosh", "Los Angeles", "A1"),
+            new Fin("Barclay Walsh", "Los Angeles", "A1"),
+            new Fin("Benjamin You", "Los Angeles", "C2")];
+
+var newyorkFins = [new Fin("Aaron Jordan", "New York", "A1"),
+            new Fin("Aaron Reynolds", "New York", "A2"),
+            new Fin("Ansley Galjour", "New York", "P2"),
+            new Fin("Ben Reyes", "New York", "P3"),
+            new Fin("Ben West", "New York", "A1")];
+
+var philadelphiaFins = [new Fin("Amy Young", "Philadelphia", "P1"),
+            new Fin("Cesar Giralt", "Philadelphia", "P1"),
+            new Fin("Chris Martin", "Philadelphia", "A1"),
+            new Fin("Chris Payne", "Philadelphia", "C2"),
+            new Fin("Drew Zucker", "Philadelphia", "A1")];
+
+var sanfranciscoFins = [new Fin("Adrian Meza", "San Francisco", "A1"),
+            new Fin("Alex Deany", "San Francisco", "C1"),
+            new Fin("Alex Miller", "San Francisco", "A1"),
+            new Fin("Alexandria Johnson", "San Francisco", "M1"),
+            new Fin("Allison Mar", "San Francisco", "C2")];
+
+var seattleFins = [new Fin("Akhil Patel", "Seattle", "P3"),
+            new Fin("Alan Hsu", "Seattle", "M3"),
+            new Fin("Alec Branch", "Seattle", "A1"),
+            new Fin("Alex Hong", "Seattle", "C2"),
+            new Fin("Andru Freeman", "Seattle", "M1")];
+
+var washingtondcFins = [new Fin("Aaron Fisher", "Washington D.C.", "M3"),
+            new Fin("Anthony Perozze", "Washington D.C.", "A1"),
+            new Fin("Brett Fox", "Washington D.C.", "A1"),
+            new Fin("Charlotte Doney", "Washington D.C.", "C1"),
+            new Fin("Cody Collins", "Washington D.C.", "C2")];
 
 var content = [];
 content = content.concat(offices);

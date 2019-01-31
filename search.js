@@ -7,7 +7,13 @@ $(document).keypress(function(event){
         var trigger = false;
 
         for(var i = 0; i < content.length; i++){
-            if(search == content[i].name){
+            if(search == "Bruce Ballengee"){
+              document.getElementById('myModal').style.display = "block";
+              trigger = true;
+            } else if(search == "Pierre Nallet"){
+              document.getElementById("pierre").style.display = "block";
+              trigger = true;
+            } else if(search == content[i].name){
               if(content[i].address == undefined){
                 trigger = true;
                 setMapCenter(content[i].office);

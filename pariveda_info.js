@@ -108,7 +108,9 @@ var dallasFins = [new Fin("Juan Vasquez", "Dallas", "C1"),
             new Fin("Aaron Boswell", "Dallas", "V7"),
             new Fin("Allen Nguyen", "Dallas", "M2"),
             new Fin("Allison Grindle", "Dallas", "M1"),
-            new Fin("Allison Moy", "Dallas", "A1")];
+            new Fin("Allison Moy", "Dallas", "A1"),
+            new Fin("Bruce Ballengee", "Dallas", "Bruce"),
+            new Fin("Pierre Nallet", "Dallas", "Pierre")];
 
 var houstonFins = [new Fin("Alan Henson", "Houston", "P3"),
             new Fin("Alex Benavides", "Houston", "C2"),
@@ -173,7 +175,7 @@ var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #37
                new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", sanfranciscoClients, "", "", sanfranciscoFins),
                new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", seattleClients, "", "", seattleFins),
                new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients, "", "", washingtondcFins)
-           ];
+            ];
 
 var content = [];
 content = content.concat(offices);

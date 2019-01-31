@@ -89,6 +89,8 @@ var washingtondcClients = [];
 var atlantaFins = [new Fin("Alex Lyons", "Atlanta","C2"),
             new Fin("Alex Parker", "Atlanta", "P2"),
             new Fin("Alex Rogers", "Atlanta", "C1"),
+            new Fin("Conrad Spear", "Atlanta", "C1"),
+            new Fin("Marcelles Lowery", "Atlanta", "C2"),
             new Fin("Antony Lauders", "Atlanta", "A1"),
             new Fin("Brad Twining", "Atlanta", "M2")];
 
@@ -97,9 +99,12 @@ var chicagoFins = [new Fin("Adrian Kosciak", "Chicago","M3"),
             new Fin("Andy Hoch", "Chicago", "A2"),
             new Fin("Andy Sindoni", "Chicago", "M2"),
             new Fin("Anthony Daegele", "Chicago", "C1"),
+            new Fin("Katie Lutz", "Chicago", "C1"),
             new Fin("Joel Eliason", "Chicago", "C1")];
 
 var dallasFins = [new Fin("Juan Vasquez", "Dallas", "C1"),
+            new Fin("Trevor Mason", "Dallas", "C1"),
+            new Fin("Samuel Yapkowitz", "Dallas", "C1"),
             new Fin("Aaron Boswell", "Dallas", "V7"),
             new Fin("Allen Nguyen", "Dallas", "M2"),
             new Fin("Allison Grindle", "Dallas", "M1"),
@@ -107,6 +112,8 @@ var dallasFins = [new Fin("Juan Vasquez", "Dallas", "C1"),
 
 var houstonFins = [new Fin("Alan Henson", "Houston", "P3"),
             new Fin("Alex Benavides", "Houston", "C2"),
+            new Fin("Usman Siddiqui", "Houston", "C1"),
+            new Fin("Jorge Garcia-Rivera", "Houston", "C1"),
             new Fin("Alex Mong", "Houston", "A2"),
             new Fin("Alex Tai", "Houston", "P2"),
             new Fin("Allison Esenkova", "Houston", "V4"),
@@ -116,10 +123,12 @@ var losangelesFins = [new Fin("Anu Duggirala", "Los Angeles", "M3"),
             new Fin("Albert Cassanova", "Los Angeles", "M1"),
             new Fin("Avi Suntosh", "Los Angeles", "A1"),
             new Fin("Barclay Walsh", "Los Angeles", "A1"),
+            new Fin("Bilal Sattar", "Los Angeles", "C1"),
             new Fin("Benjamin You", "Los Angeles", "C2")];
 
 var newyorkFins = [new Fin("Aaron Jordan", "New York", "A1"),
             new Fin("Aaron Reynolds", "New York", "A2"),
+            new Fin("Jake Altabef", "New York", "C1"),
             new Fin("Ansley Galjour", "New York", "P2"),
             new Fin("Ben Reyes", "New York", "P3"),
             new Fin("Ben West", "New York", "A1")];
@@ -133,9 +142,11 @@ var philadelphiaFins = [new Fin("Amy Young", "Philadelphia", "P1"),
 
 var sanfranciscoFins = [new Fin("Adrian Meza", "San Francisco", "A1"),
             new Fin("Alex Deany", "San Francisco", "C1"),
+            new Fin("Tida sooreechine", "San Francisco", "C1"),
             new Fin("Alex Miller", "San Francisco", "A1"),
             new Fin("Alexandria Johnson", "San Francisco", "M1"),
             new Fin("Allison Mar", "San Francisco", "C2"),
+            new Fin("Charmaine Estacio", "San Francisco", "C2"),
             new Fin("Christian Cuellar", "San Francisco", "C1")];
 
 var seattleFins = [new Fin("Akhil Patel", "Seattle", "P3"),

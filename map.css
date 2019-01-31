@@ -103,14 +103,13 @@ body {
 	line-height: 18px;
 	font-weight: 400;
 	margin-right: 1px;
-	padding: 15px 5px 20px 15px;
 	max-height: 240px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
 .iw-content img {
 	float: right;
-	margin: 0 5px 5px 10px;
+	/*margin: 0 5px 5px 10px;*/
 }
 .iw-subTitle {
 	font-size: 16px;
@@ -155,7 +154,7 @@ body {
   height: 100%;
 }
 
-#Info {background-color: red;}
-#Fins {background-color: green;}
-#Links {background-color: blue;}
-#About {background-color: orange;}
+#Info {background-color: red; width: 307px}
+#Fins {background-color: green; width: 307px}
+#Links {background-color: blue; width: 307px}
+#About {background-color: orange; width: 307px}

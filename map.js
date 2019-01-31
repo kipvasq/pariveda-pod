@@ -26,6 +26,28 @@ function addMarker(location){
     }
 }
 
+//used to populate the fins tab of office markers
+function populateFins(location) {
+    var finlist = location.finlist;
+    var info = "";
+
+    if(finlist.length > 0){
+        for (var i = 0; i < finlist.length; i++) {
+            info = info + "<div>" + finlist[i].name + ", " + finlist[i].cohort + "</div>";
+        }
+    }
+    return info;
+}
+
+//used to populate the info tab of office markers
+function populateInfo(location) {
+    var info = "";
+    info += "<div>" + "Address: " + location.address +"</div>";
+    info += "<div>" + "Phone: " + location.phone +"</div>";
+    info += "<div>" + "Email: " + location.email +"</div>";
+    return info;
+}
+
 // generate marker, infowindow with html
 function generateMarker(location){
     // define icon
@@ -57,16 +79,16 @@ function generateMarker(location){
                         '<div class="iw-title">' + location.name + '</div>' +
                         '<div class="iw-content">' +
                             '<button class="tablink" onclick="openPage(\'Info\', this, \'red\')" id="defaultOpen">Info</button>' +
-                            '<button class="tablink" onclick="openPage(\'Fins\', this, \'red\')">Fins</button>' +
-                            '<button class="tablink" onclick="openPage(\'Links\', this, \'red\')">Links</button>' +
-                            '<button class="tablink" onclick="openPage(\'About\', this, \'red\')">About</button>' +
+                            '<button class="tablink" onclick="openPage(\'Fins\', this, \'green\')">Fins</button>' +
+                            '<button class="tablink" onclick="openPage(\'Links\', this, \'blue\')">Links</button>' +
+                            '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">About</button>' +
                             '<div id="Info" class="tabcontent">' +
                                 '<h3>Info</h3>' +
-                                '<p>Home is where the heart is..</p>' +
+                                populateInfo(location) +
                             '</div>' +
                             '<div id="Fins" class="tabcontent">' +
                                 '<h3>Fins</h3>' +
-                                '<p>Some news this fine day!</p>' +
+                                populateFins(location) +
                             '</div>' +
                             '<div id="Links" class="tabcontent">' +
                                 '<h3>Links</h3>' +
@@ -99,6 +121,7 @@ function generateMarker(location){
             hideAllMarkers();
             map.setCenter(marker.getPosition());
             infowindow.open(map, marker);
+            openPage('Info', this, 'red');
             map.setZoom(9.0);
         });
 

@@ -1,11 +1,12 @@
 class Location {
-    constructor(name, address="N/A", latLng={lat: 0.0, lng: 0.0}, type="N/A", phone, email, connection){
+    constructor(name, address="N/A", latLng={lat: 0.0, lng: 0.0}, type="N/A", connection, phone="", email="", finlist=[]){
         this.name = name;
         this.address = address;
         this.latLng = latLng;
         this.type = type;
         this.phone = phone;
         this.email = email;
+        this.finlist = finlist;
 
         if(this.type == "office"){
             this.client = connection;
@@ -19,7 +20,7 @@ class Fin {
     constructor(name, office, cohort) {
         this.name = name;
         this.office = office;
-        this.client = cohort;
+        this.cohort = cohort;
     }
 }
 
@@ -85,18 +86,6 @@ var seattleClients = [ new Location("Amazon.com Inc.", "410 Terry Ave N, Seattle
 
 var washingtondcClients = [];
 
-var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #375, Atlanta, GA 30309​", {lat: -1.0, lng: -1.0}, "office", "(404) 528-1120​", "atlanta@parivedasolutions.com", atlantaClients),
-               new Location("Chicago", "​​​​​​​​​​​20 N. Wacker Dr.​ #2620, Chicago, IL 60606", {lat: -1.0, lng: -1.0}, "office", "(312) 902-5700", "chicago@parivedasolutions.com", chicagoClients),
-               new Location("Dallas", "2811 McKin​ney Ave​ #220, LB 126, Dallas, TX  75204​​", {lat: -1.0, lng: -1.0}, "office", dallasClients),
-               new Location("Houston", "​​​​​​​​​​​​24 E. Greenway Plaza​ #1717, Houston, TX 77046", {lat: -1.0, lng: -1.0}, "office", houstonClients),
-               new Location("Los Angeles", "222 N. Sepulveda Blvd. #2120, El Segundo, CA 90245", {lat: -1.0, lng: -1.0}, "office", losangelesClients),
-               new Location("New York", "​​​​​​​​​​​​​​​​​​​​​​150 East 52nd Street​ #8002, New York, NY 10022", {lat: -1.0, lng: -1.0}, "office", newyorkClients),
-               new Location("Philadelphia", "1601 Market St 19th Floor, Philadelphia, PA 19103", {lat: -1.0, lng: -1.0}, "office", philadelphiaClients),
-               new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", sanfranciscoClients),
-               new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", seattleClients),
-               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients)
-           ];
-
 var atlantaFins = [new Fin("Alex Lyons", "Atlanta","C2"),
             new Fin("Alex Parker", "Atlanta", "P2"),
             new Fin("Alex Rogers", "Atlanta", "C1"),
@@ -156,6 +145,19 @@ var washingtondcFins = [new Fin("Aaron Fisher", "Washington D.C.", "M3"),
             new Fin("Brett Fox", "Washington D.C.", "A1"),
             new Fin("Charlotte Doney", "Washington D.C.", "C1"),
             new Fin("Cody Collins", "Washington D.C.", "C2")];
+
+//constructor(name, address="N/A", latLng={lat: 0.0, lng: 0.0}, type="N/A", connection, phone="", email="", finlist=[])
+var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #375, Atlanta, GA 30309​", {lat: -1.0, lng: -1.0}, "office", atlantaClients, "(404) 528-1120​", "atlanta@parivedasolutions.com", atlantaFins),
+               new Location("Chicago", "​​​​​​​​​​​20 N. Wacker Dr.​ #2620, Chicago, IL 60606", {lat: -1.0, lng: -1.0}, "office", chicagoClients, "(312) 902-5700", "chicago@parivedasolutions.com", chicagoFins),
+               new Location("Dallas", "2811 McKin​ney Ave​ #220, LB 126, Dallas, TX  75204​​", {lat: -1.0, lng: -1.0}, "office", dallasClients, "", "", dallasFins),
+               new Location("Houston", "​​​​​​​​​​​​24 E. Greenway Plaza​ #1717, Houston, TX 77046", {lat: -1.0, lng: -1.0}, "office", houstonClients, "", "", houstonFins),
+               new Location("Los Angeles", "222 N. Sepulveda Blvd. #2120, El Segundo, CA 90245", {lat: -1.0, lng: -1.0}, "office", losangelesClients, "", "", losangelesFins),
+               new Location("New York", "​​​​​​​​​​​​​​​​​​​​​​150 East 52nd Street​ #8002, New York, NY 10022", {lat: -1.0, lng: -1.0}, "office", newyorkClients, "", "", newyorkFins),
+               new Location("Philadelphia", "1601 Market St 19th Floor, Philadelphia, PA 19103", {lat: -1.0, lng: -1.0}, "office", philadelphiaClients, "", "", philadelphiaFins),
+               new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", sanfranciscoClients, "", "", sanfranciscoFins),
+               new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", seattleClients, "", "", seattleFins),
+               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients, "", "", washingtondcFins)
+           ];
 
 var content = [];
 content = content.concat(offices);

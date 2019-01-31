@@ -78,11 +78,11 @@ function generateMarker(location){
     var contentString = '<div id="iw-container">' +
                         '<div class="iw-title">' + location.name + '</div>' +
                         '<div class="iw-content">' +
-                            '<button class="tablink" onclick="openPage(\'Info\', this, \'red\')" id="defaultOpen">Info</button>' +
-                            '<button class="tablink" onclick="openPage(\'Fins\', this, \'green\')">Fins</button>' +
-                            '<button class="tablink" onclick="openPage(\'Links\', this, \'blue\')">Links</button>' +
-                            '<button class="tablink" onclick="openPage(\'About\', this, \'orange\')">About</button>' +
-                            '<div id="Info" class="tabcontent">' +
+                            '<button class="tablink" onclick="openPage(\'Info\', this, \'#123456\')" id="defaultOpen">Info</button>' +
+                            '<button class="tablink" onclick="openPage(\'Fins\', this, \'#123456\')">Fins</button>' +
+                            '<button class="tablink" onclick="openPage(\'Links\', this, \'#123456\')">Links</button>' +
+                            '<button class="tablink" onclick="openPage(\'About\', this, \'#123456\')">About</button>' +
+                            '<div id="Info" style="display:block" class="tabcontent">' +
                                 '<h3>Info</h3>' +
                                 populateInfo(location) +
                             '</div>' +
@@ -121,7 +121,6 @@ function generateMarker(location){
             hideAllMarkers();
             map.setCenter(marker.getPosition());
             infowindow.open(map, marker);
-            openPage('Info', this, 'red');
             map.setZoom(9.0);
         });
 
@@ -168,22 +167,22 @@ function styleInfoWindow(infowindow){
         iwBackground.children(':nth-child(4)').css({'display' : 'none'});
 
         // Moves the infowindow 115px to the right.
-        iwOuter.parent().parent().css({left: '115px'});
+        // iwOuter.parent().parent().css({left: '115px'});
 
         // Moves the shadow of the arrow 76px to the left margin.
-        iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+        // iwBackground.children(':nth-child(1)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
 
         // Moves the arrow 76px to the left margin.
-        iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
+        // iwBackground.children(':nth-child(3)').attr('style', function(i,s){ return s + 'left: 76px !important;'});
 
         // Changes the desired tail shadow color.
-        iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index' : '1'});
+        // iwBackground.children(':nth-child(3)').find('div').children().css({'box-shadow': 'rgba(72, 181, 233, 0.6) 0px 1px 6px', 'z-index' : '1'});
 
         // Reference to the div that groups the close button elements.
         var iwCloseBtn = iwOuter.next();
 
         // Apply the desired effect to the close button
-        iwCloseBtn.css({opacity: '1', right: '38px', top: '3px', border: '7px solid #48b5e9', 'border-radius': '13px', 'box-shadow': '0 0 5px #3990B9'});
+        iwCloseBtn.css({opacity: '1', right: '50px', top: '15px'});
 
         // If the content of infowindow not exceed the set maximum height, then the gradient is removed.
         if($('.iw-content').height() < 140){

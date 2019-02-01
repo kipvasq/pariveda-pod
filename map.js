@@ -69,14 +69,12 @@ function generateMarker(location){
     var contentString = '<div id="iw-container">' +
                         '<div class="iw-title">' + location.name + '</div>' +
                         '<div class="iw-content">' +
-                            '<button class="tablink" onclick="openPage(\'Info\', this, \'#123456\')" id="defaultOpen">Info</button>' +
+                            '<button class="tablink" style="background: #123456;"onclick="openPage(\'Info\', this, \'#123456\')" id="defaultOpen">Info</button>' +
                             '<button class="tablink" onclick="openPage(\'Fins\', this, \'#123456\')">Fins</button>' +
                             '<div id="Info" style="display:block" class="tabcontent">' +
-                                '<h3>Info</h3>' +
                                 populateInfo(location) +
                             '</div>' +
                             '<div id="Fins" class="tabcontent">' +
-                                '<h3>Fins</h3>' +
                                 populateFins(location) +
                             '</div>' +
                             '<div id="Links" class="tabcontent">' +

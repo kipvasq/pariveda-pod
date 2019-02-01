@@ -40,6 +40,9 @@ function populateFins(location) {
             info = info + "<div>" + finlist[i].name + ", " + finlist[i].cohort + "</div>";
         }
     }
+    else {
+        info = "None";
+    }
     return info;
 }
 

@@ -174,7 +174,9 @@ var offices = [new Location("Atlanta", "​​​​​​10 Tenth Street NE #37
                new Location("Philadelphia", "1601 Market St 19th Floor, Philadelphia, PA 19103", {lat: -1.0, lng: -1.0}, "office", philadelphiaClients, "", "", philadelphiaFins),
                new Location("San Francisco", "​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​201 California St #1250, San Francisco, CA 94111", {lat: -1.0, lng: -1.0}, "office", sanfranciscoClients, "", "", sanfranciscoFins),
                new Location("Seattle", "1100 Olive Way #850, Seattle, WA 98101", {lat: -1.0, lng: -1.0}, "office", seattleClients, "", "", seattleFins),
-               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients, "", "", washingtondcFins)
+               new Location("Washington D.C.", "​​​​​​​​​​​​​​​​​1616 N Fort Myer Dr​ #1110, Arlington, V​​A 22209​", {lat: -1.0, lng: -1.0}, "office", washingtondcClients, "", "", washingtondcFins),
+               new Location("Torronto", "Torronto, Canada", {lat: -1.0, lng: -1.0}, "office", [], "", "", []),
+               new Location("London", "London", {lat: -1.0, lng: -1.0}, "office", [], "", "", []),
             ];
 
 var content = [];

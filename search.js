@@ -1,35 +1,40 @@
-// submission of search text
-$(document).keypress(function(event){
-	var keycode = (event.keyCode ? event.keyCode : event.which);
-	if(keycode == '13'){
-        var searchValue = document.getElementById("searchBar");
-        var search = searchValue.value;
-        var trigger = false;
+$(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      if(keycode == '13'){
+            var searchValue = document.getElementById("searchBar");
+            var search = searchValue.value;
+            var trigger = false;
 
-        for(var i = 0; i < content.length; i++){
-            if(search == "Bruce Ballengee"){
-              document.getElementById('myModal').style.display = "block";
-              trigger = true;
-            } else if(search == "Pierre Nallet"){
-              document.getElementById("pierre").style.display = "block";
-              trigger = true;
-            } else if(search == content[i].name){
-              if(content[i].address == undefined){
-                trigger = true;
-                setMapCenter(content[i].office);
-                openMarker(content[i].office);
-              } else{
-                trigger = true;
-                setMapCenter(content[i].address);
-                openMarker(content[i].name);
-              }
+            for(var i = 0; i < content.length; i++){
+                if(search == "Bruce Ballengee"){
+                  document.getElementById('myModal').style.display = "block";
+                  trigger = true;
+                } else if(search == "Pierre Nallet"){
+                  document.getElementById("pierre").style.display = "block";
+                  trigger = true;
+                } else if(search == content[i].name){
+                  if(content[i].address == undefined){
+                    trigger = true;
+                    setMapCenter(content[i].office);
+                    openMarker(content[i].office);
+                  } else{
+                    trigger = true;
+                    setMapCenter(content[i].address);
+                    openMarker(content[i].name);
+                  }
+                }
             }
-        }
 
-        if(!trigger){
-            setMapCenter(search);
-        }
-	}
+            if(!trigger){
+                setMapCenter(search);
+            }
+      }
+      return false;
+    }
+  });
 });
 
 // open individual marker if searched (and matches)

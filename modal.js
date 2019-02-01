@@ -4,8 +4,6 @@ function setupModal(){
     var modal = document.getElementById('myModal');
     var pierre = document.getElementById('pierre');
 
-    console.log(modal);
-
     // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
     var span2 = document.getElementsByClassName("close")[1];

@@ -71,8 +71,6 @@ function generateMarker(location){
                         '<div class="iw-content">' +
                             '<button class="tablink" onclick="openPage(\'Info\', this, \'#123456\')" id="defaultOpen">Info</button>' +
                             '<button class="tablink" onclick="openPage(\'Fins\', this, \'#123456\')">Fins</button>' +
-                            '<button class="tablink" onclick="openPage(\'Links\', this, \'#123456\')">Links</button>' +
-                            '<button class="tablink" onclick="openPage(\'About\', this, \'#123456\')">About</button>' +
                             '<div id="Info" style="display:block" class="tabcontent">' +
                                 '<h3>Info</h3>' +
                                 populateInfo(location) +
